@@ -5,14 +5,14 @@
 
 
 
-struct snode *snode_create(char *s) 
+struct snode *snode_create(void *s) 
 {
  //TODO: implement snode_create, change the prototype to
  //match with header file
  //return node;
     struct snode * newNode = (struct snode*)malloc(sizeof(struct snode));
-    newNode->str = (char*)malloc(strlen(s)+1);
-    strcpy(newNode->str,s);
+    newNode->str = (void*)malloc(strlen((char*)(s))+1);
+    strcpy((char*)(newNode->str),s);
     newNode->next = NULL;
 
     return newNode;
