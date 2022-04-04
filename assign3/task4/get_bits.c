@@ -7,8 +7,17 @@
 unsigned * get_bits(unsigned x,
                  unsigned start,
                  unsigned end) {
-    
-   return NULL;
+
+
+
+unsigned * arr = (unsigned *) malloc(sizeof(unsigned) * (end - start + 1));
+    int len = end - start + 1;
+    for (int i = 0; i <= len; ++i)
+        
+        arr[i] = (x & ( 1 << ( start + i)))?1:0;
+
+
+    return arr;
     // YOUR CODE HERE
     // Returning NULL is a placeholder
     // get_bits dynamically allocates an array a and set a[i] = 1 when (i+start)-th bit

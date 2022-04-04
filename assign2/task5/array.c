@@ -33,5 +33,18 @@ void printArray(int a[], int size) {
  *  a is sorted in ascending order 
  */
 void bubbleSort(int a[], int size) {
-    //TODO: write this function
-}
+  int step, i;
+  for (step = 0; step < size; step++) 
+  {  
+    for (i = 0; i < size - step - 1; i++) 
+    {
+      if (a[i] > a[i + 1]) 
+      {
+        int temp = a[i];
+        a[i] = a[i + 1];
+        a[i + 1] = temp;
+        
+       }
+     }
+   }
+ }  

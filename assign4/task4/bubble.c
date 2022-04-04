@@ -13,6 +13,12 @@ int main()
 
   printf("Please enter %d strings, one per line:\n", NUM);
 
+  int i=0;
+ for(int i=0; i<NUM ; i++){
+       fgets(Strings,LEN,stdin);
+   }
+  
+  
   /* Write a for loop here to read NUM strings.
 
      Use fgets(), with LEN as an argument to ensure that an input line that is too
@@ -24,10 +30,34 @@ int main()
   */
 
   puts("\nHere are the strings in the order you entered:");
+ 
+  for(i=0; i<NUM; i++){
+    printf("[%d] %s\n",i+1,Strings[i]);
+    }
 
-  /* Write a for loop here to print all the strings. */
+  int j;
 
+char temp[NUM];
+
+for(i=0; i<NUM;i++){
   
+  for(j=0;j<NUM-i-1;j++){
+    
+    if(strcmp(Strings[j],Strings[j+1])>0){
+      
+      strcpy(temp,Strings[j]);
+      
+      strcpy(Strings[j],Strings[j+1]);
+      
+      strcpy(Strings[j+1],temp);
+
+      }
+
+    }
+
+}
+
+
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order
 
@@ -42,9 +72,21 @@ int main()
   */
   /* Output sorted list */
   
-  puts("\nIn alphabetical order, the strings are:");     
-  /* Write a for loop here to print all the strings. Feel free to use puts/printf
+  puts("\nIn alphabetical order, the strings are:");
+  for(int x=0;x<NUM;x++){
+       printf("%s",Strings[x]);
+   }
+   
+   return 0;
+ 
+  for(i=0; i<NUM; i++){
+    printf("[%d] %s\n",i+1,Strings[i]);
+}
+}
+
+
+/* Write a for loop here to print all the strings. Feel free to use puts/printf
      etc. for printing each string.
   */
 
-}
+

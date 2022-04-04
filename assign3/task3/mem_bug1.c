@@ -2,18 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char * argv[]){
+int main(){
 
-  int * a = malloc(sizeof(int *));
+  int * a =(int*) malloc(sizeof(int *));
 
   *a = 10;  
-
+  
+  
   printf("%d\n", *a);
+  free(a);
 
-  a = malloc(sizeof(int *)*3);
+  a = (int*)malloc(sizeof(int *)*3);
   a[0] = 10;
   a[1] = 20;
   a[2] = 30;
 
+  
   printf("%d %d %d\n", a[0], a[1], a[2]);
+  free(a);
 }

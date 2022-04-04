@@ -74,7 +74,7 @@ int main(int argc,
     expected = 0;
     test_get_bits(0b11011,9,9,&expected);
 
-    unsigned expectedArr[] = {1,0,1,0};
+    unsigned expectedArr[] = {0,1,0,1};
     test_get_bits(0b111010101110, 3, 6, expectedArr);
     test_get_bits(0b01011111, 4, 7, expectedArr);
     test_get_bits(0b11110101, 0, 3, expectedArr);

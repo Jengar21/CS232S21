@@ -8,4 +8,7 @@ void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
     // YOUR CODE HERE
+     for (int i = start; i <= end; ++i)
+        // flip the bit
+        (*x) ^= (1 << i);
 }

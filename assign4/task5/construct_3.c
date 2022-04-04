@@ -6,6 +6,25 @@ typedef struct node {
 } node_t;
 
 node_t * construct_3() {
+  node_t * x;
+  node_t * y;
+  node_t * z;
+        
+  x = (node_t *)malloc(sizeof(node_t)); 
+  y = (node_t *)malloc(sizeof(node_t)); 
+  z = (node_t *)malloc(sizeof(node_t)); 
+        
+  x->value = 1;
+  y->value = 2;
+  z->value = 3;
+  
+  x->next = y;
+  y->next = z;
+  z->next = x;
+  
+  return x;
+  free(x);
+
     //Allocate three pointers: 
     //x for the first Node, and temporary pointers y and z for the other two Nodes.
 

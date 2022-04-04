@@ -1,23 +1,20 @@
 #include <stdio.h>
+#include<string.h>
 
 int main(int argc, char *argv[]) {
-/* example:
- *  char str[10090];
-   int ch, n = 0;
 
-   while ((ch = getchar()) != EOF && n < 1000) {
-      str[n] = ch;
-      ++n;
+ char str[25];
+   int n = 0;
+
+   scanf("%s",str);
+
+   for(n=0;n<=strlen(str);n++){
+      if(str[n]>=97&&str[n]<=122)
+         str[n]=str[n]-32;
    }
-
-   for (int i = 0; i < n; ++i)
-      putchar(str[i]);
-
-
+  printf("%s\n",str);
    return 0;
 
- */
-
-    return 0;
+ 
 }
 

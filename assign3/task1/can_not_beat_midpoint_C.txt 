@@ -1,0 +1,2 @@
+
+Midpoint_C doesn't fail because it uses bitwise operators allowing it to operates on one bit at a time. While the other midpoint equations would us the entire integer and it can be too big for a 32-bit holder.
