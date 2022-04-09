@@ -19,8 +19,58 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
+/* int msb(int x) {
+  int n;
+  for(n=31;n>=0;n--) {
+    if ((x & (1<<n))!= 0) return n; // The nth bit is on
+  }
+  return -1; // No bits are on
+} */
+
 int msb(int x) {
-	if (x==0) return -1;
+	if (x == 0){
+    return -1;
+  }
+
+  int w, ep;
+
+  w = 32;// Number of bits that might contain most significant 1
+  ep = 0;// Rightmost bit that might contain most significant 1
+
+  while(w > 1){
+    //TODO: Look at half the range of bits
+    int hw = w / 2;
+		//TODO: create a mask. 
+    int mask = 0;
+    int n;
+
+    /*for(n = 31;n >= 0; n--) {
+      if ((x & (1<<n))!= 0){
+        return n; // The nth bit is on
+      }
+      //return -1;
+    }*/
+
+    for (n = hw; n < 2 * hw; n++)
+    mask |= (1 << (ep + n));
+    
+    // This mask is all one-bits in the left half of the range
+    printf("M = ");
+    print_binary(mask);
+    printf(" hw = %d ep = %d\n", hw, ep);
+    //TODO: use mask to figure out if the left half of the range has at least one bit   
+		//If the left half of the range has a one bit, focus on only the left half
+    if ((x & mask)) {
+      w /= 2;
+      ep += hw;
+    }
+		//else focus on only the right half
+    else{
+      w /= 2;
+    }
+		//TODO: You have ruled out either the left half of the range or the right half of the range
+		//set up ep and w accordingly
+  }
 	//we are looking for a *range* that may contain most significant 1
 	//the range is defined by width (w) and end_point (ep)
 	//if we say range=6, ep=3, then it describes the following scenario:
@@ -29,21 +79,7 @@ int msb(int x) {
 	//                        ^
 	//                        |
 	//                        ep
-	// in which * is a wild card which could be 0 or 1                   
-	int w, ep;
-	w=32; // Number of bits that might contain most significant 1
-	ep=0; // Rightmost bit that might contain most significant 1
-	while(w>1) { //Narrow down to a single bit
-		//TODO: Look at half the range of bits
-		//TODO: create a mask. 
-		// This mask is all one-bits in the left half of the range
-		printf("M= "); print_binary(mask); printf(" hw=%d ep=%d\n",hw,ep);
-		//TODO: use mask to figure out if the left half of the range has at least one bit   
-		//If the left half of the range has a one bit, focus on only the left half
-		//else focus on only the right half
-		//TODO: You have ruled out either the left half of the range or the right half of the range
-		//set up ep and w accordingly
-	}
+	// in which * is a wild card which could be 0 or 1             
 	return ep;
 }
 //Do not modify print_binary
