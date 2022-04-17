@@ -1,0 +1,1 @@
+The control bit flag given is f = 1, no = 1, NX = 1, X = 9 and Y = 5. NX = 1 will inverts X of 9 to X of -9. f = 1 the output is X + Y which is -9 + 5 = -4, no= 1 will invert -4 back to 4.
